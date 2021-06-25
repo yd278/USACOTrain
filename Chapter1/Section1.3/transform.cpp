@@ -19,10 +19,11 @@ TASK: transform
 #include <iostream>
 using namespace std;
 int ans[8] = {6,1,2,3,4,5,5,5};
+
 struct board{
 	int content[11][11];
-}
-boards[9];
+}boards[9];
+
 int n;
 board readBoard(){
 	string line;
@@ -30,7 +31,7 @@ board readBoard(){
 	for(int i = 0; i < n; i++){
 		cin>> line;
 		for(int j = 0; j < n; j++){
-			b.content[i][j] = line[j]== '@';
+			b.content[i][j] = (line[j]== '@');
 		}
 	}
 	return b;
@@ -79,13 +80,14 @@ int main(){
 	for(int i = 4; i < 8; i++)
 		boards[i] = reflect(boards[i - 4]);
 
+	int possible = 7;
+
 	for(int i = 1; i < 8; i++){
 		if(equal(boards[i],boards[8])){
-			cout<<ans[i]<<endl;
-			return 0;
+			if(ans[i] < possible) possible = ans[i];
 		}
 	}
-	cout<<7<<endl;
+	cout<<possible<<endl;
 	return 0;
 	
 
