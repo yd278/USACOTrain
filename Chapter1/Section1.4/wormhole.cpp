@@ -34,10 +34,23 @@ int check() {
 	}
 	return 0;
 }
-
+int check_alt(){
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            mark[j] = 0;
+        }
+        int current = i;
+        while(current != -1){
+            mark[current] = 1;
+            current = out[in[current]];
+            if(mark[current]==1)return 1;
+        }
+    }
+    return 0;
+}
 void generate(int x) {
     if (x == n) {
-        cnt += check();
+        cnt += check_alt();
         return;
     }
     if (in[x] == -1) {
