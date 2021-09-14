@@ -18,7 +18,7 @@ int main() {
         cout << 0 << endl;
         return 0;
     }
-	f[1] = 1;
+    f[1] = 1;
     m /= 2;
     for (int i = 2; i <= n; i++) {
         for (int j = m; j >= i; j--) {
