@@ -69,13 +69,13 @@ int main(){
     }
     int cnt = 0;
     while(!meet()){
-        int FJe = FJ.encode();
-        int cowse = cows.encode();
-        if(visited[FJe][cowse]){
+        int FJPos = FJ.encode();
+        int cowPos = cows.encode();
+        if(visited[FJPos][cowPos]){
             cout<<0<<endl;
             return 0;
         }
-        visited[FJe][cowse] = 1;
+        visited[FJPos][cowPos] = 1;
         FJ.move();
         cows.move();
         cnt ++;
