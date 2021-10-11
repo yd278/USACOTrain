@@ -69,42 +69,8 @@ int main() {
         }
     }
     q.push(pos{Ex[0], Ey[0]});
+    q.push(pos{Ex[1],Ey[1]});
     dist[Ex[0]][Ey[0]] = 1;
-    while (!q.empty()) {
-        pos current = q.front();
-        q.pop();
-        int x = current.x;
-        int y = current.y;
-        if ((x + 2 < h * 2 + 1) && (map[x + 1][y] == ' ')) {
-            if (dist[x + 2][y] > dist[x][y] + 1) {
-                dist[x + 2][y] = dist[x][y] + 1;
-                q.push(pos{x + 2, y});
-            }
-        }
-        if ((x - 2 >= 0) && (map[x - 1][y] == ' ')) {
-            if (dist[x - 2][y] > dist[x][y] + 1) {
-                dist[x - 2][y] = dist[x][y] + 1;
-                q.push(pos{x - 2, y});
-            }
-        }
-        if ((y + 2 < w * 2 + 1) && (map[x][y + 1] == ' ')) {
-            if (dist[x][y + 2] > dist[x][y] + 1) {
-                dist[x][y + 2] = dist[x][y] + 1;
-                q.push(pos{x, y + 2});
-            }
-        }
-        if ((y - 2 >= 0) && (map[x][y - 1] == ' ')) {
-            if (dist[x][y - 2] > dist[x][y] + 1) {
-                dist[x][y - 2] = dist[x][y] + 1;
-                q.push(pos{x, y - 2});
-            }
-        }
-    }
-
-
-    //再来一次
-
-    q.push(pos{Ex[1], Ey[1]});
     dist[Ex[1]][Ey[1]] = 1;
     while (!q.empty()) {
         pos current = q.front();
@@ -136,6 +102,8 @@ int main() {
             }
         }
     }
+
+
     for(int i = 1; i < 2*h; i+=2){
         for(int j = 1; j < 2 * w; j += 2){
             if(dist[i][j]>maxDist){
