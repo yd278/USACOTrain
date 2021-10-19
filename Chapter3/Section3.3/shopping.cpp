@@ -69,28 +69,30 @@ int main() {
     freopen("shopping.out", "w", stdout);
 #endif
     input();
-    for(int i0 = 0; i0 <6; i0++)
-    for(int i1 = 0; i1 <6; i1++)
-    for(int i2 = 0; i2 <6; i2++)
-    for(int i3 = 0; i3 <6; i3++)
-    for(int i4 = 0; i4 <6; i4++)
-    dp[i0][i1][i2][i3][i4] = 99999999;
+    for (int i0 = 0; i0 < 6; i0++)
+        for (int i1 = 0; i1 < 6; i1++)
+            for (int i2 = 0; i2 < 6; i2++)
+                for (int i3 = 0; i3 < 6; i3++)
+                    for (int i4 = 0; i4 < 6; i4++)
+                        dp[i0][i1][i2][i3][i4] = 99999999;
 
     dp[0][0][0][0][0] = 0;
 
-    for (int i = 0; i < s + b; i++) {
-        for (int i0 = plans[i].k[0]; i0 <= items[0].k; i0++) {
-            for (int i1 = plans[i].k[1]; i1 <= items[1].k; i1++) {
-                for (int i2 = plans[i].k[2]; i2 <= items[2].k; i2++) {
-                    for (int i3 = plans[i].k[3]; i3 <= items[3].k; i3++) {
-                        for (int i4 = plans[i].k[4]; i4 <= items[4].k; i4++) {
-                            dp[i0][i1][i2][i3][i4] = min(dp[i0][i1][i2][i3][i4], dp[i0-plans[i].k[0]][i1-plans[i].k[1]][i2-plans[i].k[2]][i3-plans[i].k[3]][i4-plans[i].k[4]]+plans[i].p);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    cout<<dp[items[0].k][items[1].k][items[2].k][items[3].k][items[4].k]<<endl;;
+    for (int i = 0; i < s + b; i++)
+        for (int i0 = plans[i].k[0]; i0 <= items[0].k; i0++)
+            for (int i1 = plans[i].k[1]; i1 <= items[1].k; i1++)
+                for (int i2 = plans[i].k[2]; i2 <= items[2].k; i2++)
+                    for (int i3 = plans[i].k[3]; i3 <= items[3].k; i3++)
+                        for (int i4 = plans[i].k[4]; i4 <= items[4].k; i4++)
+                            dp[i0][i1][i2][i3][i4] =
+                                min(dp[i0][i1][i2][i3][i4],
+                                    dp[i0 - plans[i].k[0]][i1 - plans[i].k[1]]
+                                      [i2 - plans[i].k[2]][i3 - plans[i].k[3]]
+                                      [i4 - plans[i].k[4]] +
+                                        plans[i].p);
+
+    cout << dp[items[0].k][items[1].k][items[2].k][items[3].k][items[4].k]
+         << endl;
+    ;
     return 0;
 }
