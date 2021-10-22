@@ -28,9 +28,7 @@ int dijkstra(int source) {
     }
 
     nodes[source].dist = 0;
-    for (int i = 1; i <= p; i++) {
-        q.push(nodes[i]);
-    }
+    q.push(nodes[source]);
 
     while (!q.empty()) {
         node qh = q.top();
