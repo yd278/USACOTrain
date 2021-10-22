@@ -12,3 +12,6 @@
 妙题，考察模型建立以及对dijkstra的灵活运用。以及复杂度分析等等
 
 更新了dijkstra+priority_queue的模版。
+
+## range
+普通递推题，好想，注意内存限制。
