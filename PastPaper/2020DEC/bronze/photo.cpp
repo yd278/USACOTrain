@@ -42,7 +42,7 @@ int main() {
     for (int i = 1; i < n; i++) {
         if (s[i] != s[i - 1]) cnt++;
     }
-    sum -= cnt;
+    sum -= 2 * cnt;
     cout << sum << endl;
     return 0;
 }
