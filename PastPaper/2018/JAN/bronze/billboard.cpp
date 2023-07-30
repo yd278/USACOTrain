@@ -25,14 +25,14 @@ int main() {
     if (cnt <= 1) cout << (x2 - x1) * (y2 - y1) << endl;
     int ans;
     if (cnt == 2) {
-        // vertical
+       
         if (y1 >= y3 && y2 <= y4) {
-            if (x1 >= x3)  // left
+            if (x1 >= x3) 
                 ans = (y2 - y1) * (x2 - x4);
-            else  // right
+            else  
                 ans = (y2 - y1) * (x3 - x1);
-        } else {           // horizental
-            if (y1 >= y3)  // low
+        } else {           
+            if (y1 >= y3)  
                 ans = (x2 - x1) * (y2 - y4);
             else
                 ans = (x2 - x1) * (y3 - y1);
