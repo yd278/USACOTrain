@@ -17,20 +17,35 @@ int main() {
 #endif
     int n, m;
     cin >> n >> m >> hx >> hy;
+    
     f[0][0] = 1;
+    if(control(0,0))f[0][0] = 0;
+
+
     for (int i = 1; i <= n; i++) {
         f[i][0] = f[i - 1][0];
         if (control(i, 0)) f[i][0] = 0;
+
+
+            
+
+
     }
+
+
     for (int j = 1; j <= m; j++) {
         f[0][j] = f[0][j - 1];
         if (control(0, j)) f[0][j] = 0;
     }
+
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             f[i][j] = f[i - 1][j] + f[i][j - 1];
             if (control(i, j)) f[i][j] = 0;
         }
     }
+
+
     cout << f[n][m] << endl;
 }
