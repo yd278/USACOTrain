@@ -6,7 +6,7 @@ using namespace std;
 struct Edge{
 	int to,len;
 };
-#define MAX_INT 2147483647
+
 vector<Edge> edges[MAXN];
 int dist[MAXN];
 int isIn[MAXN];
@@ -26,7 +26,7 @@ int main(){
 	}
 
 	for(int i = 1;i<=n;i++){
-		dist[i] = MAX_INT;
+		dist[i] = INT_MAX;
 	}
 
 	isIn[s] = 1;
@@ -42,7 +42,7 @@ int main(){
 	for(int i = 1; i < n;i++){
 
 		
-		int min=MAX_INT,minID;
+		int min=INT_MAX,minID;
 		for(int j = 1; j <= n; j++){
 			if(!isIn[j]){
 				if(dist[j]<min){

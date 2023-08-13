@@ -45,7 +45,7 @@ int main() {
             }
         }
     }
-    int res = 2147483647;
+    int res = INT_MAX;
     int index = 0;
     for(int i = 0; i < 25;i++){
 

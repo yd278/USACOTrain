@@ -22,7 +22,7 @@ int main(){
     }
     humble.push_back(1);
     for(int i = 0; i < n; i++){
-        int Min = 2147483647;
+        int Min = INT_MAX;
         for(int j = 0; j < k; j++){
             while(humble[tail[j]]*prime[j]<=humble.back()){
                 tail[j]++;

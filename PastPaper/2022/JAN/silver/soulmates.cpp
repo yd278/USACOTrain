@@ -2,7 +2,7 @@
 using namespace std;
 int check(long long a, long long b){
     if(a>b)return -1;
-    int min = 2147483647;
+    int min = INT_MAX;
     int steps = 0;
     while(b>=a){
 
@@ -23,7 +23,7 @@ int main(){
     while(T--){
         long long a,b;
         cin>>a>>b;
-        int min = 2147483647;
+        int min = INT_MAX;
         int steps = 0;
         while(a){
             int t = check(a,b);

@@ -65,7 +65,7 @@ int main() {
 
     for (int i = 0; i < 2 * h + 1; i++) {
         for (int j = 0; j < 2 * w + 1; j++) {
-            dist[i][j] = 2147483647;
+            dist[i][j] = INT_MAX;
         }
     }
     q.push(pos{Ex[0], Ey[0]});

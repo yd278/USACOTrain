@@ -24,7 +24,7 @@ int dijkstra(int source) {
     priority_queue<node> q;
     for (int i = 1; i <= p; i++) {
         done[i] = 0;
-        nodes[i].dist = 2147483647;
+        nodes[i].dist = INT_MAX;
     }
 
     nodes[source].dist = 0;
@@ -68,7 +68,7 @@ int main() {
         nodes[a].edges.push_back(edge{b,l});
         nodes[b].edges.push_back(edge{a,l});
     }
-    int min = 2147483647;
+    int min = INT_MAX;
     for(int i = 1; i <= p; i++ ){
         int tmp = dijkstra(i);
         if(min > tmp) min = tmp;

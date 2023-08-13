@@ -14,7 +14,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> bales[i];
     }
-    bales[n] = 2147483647;
+    bales[n] = INT_MAX;
     sort(bales.begin(), bales.end());
 
     for (int i = 0; i < q; i++) {

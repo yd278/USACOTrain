@@ -67,7 +67,7 @@ int dijkstra(int source){
         }
     }
     int sum = 0;
-    int minDiff = 2147483647;
+    int minDiff = INT_MAX;
     for(int i = 0; i < knightTail;i++){
         int knight0 = encode(knightsR[i],knightsC[i],0);
         int knight1 = encode(knightsR[i],knightsC[i],1);
@@ -124,7 +124,7 @@ int main() {
             nodes[cur0].edges.push_back(edge{cur1,kingDist(i,j)});
         }
     }
-    int minAns = 2147483647;
+    int minAns = INT_MAX;
     for(int i = 0; i < R; i++){
         for(int j = 0; j < C; j++){
             int source = encode(i,j,0);

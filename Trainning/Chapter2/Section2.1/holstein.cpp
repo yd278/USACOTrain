@@ -13,7 +13,7 @@ int req[26];
 int scoop[16][26];
 int acc[26];
 int ansState;
-int minCnt=2147483647;
+int minCnt=INT_MAX;
 vector<int> format;
 int check(){
 	for(int i = 0; i < V; i++){
