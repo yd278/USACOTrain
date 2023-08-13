@@ -10,7 +10,6 @@ int selected[MAXN+1];
 int follow[MAXN+1];
 int inCnt[MAXN+1];
 int visited[MAXN+1];
-vector<int>secondBatch();
 int dfs(int x,map<int,int> &vis){
     int to = first[x];
     if(!vis[to]){

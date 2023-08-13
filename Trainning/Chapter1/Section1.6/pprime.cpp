@@ -39,9 +39,8 @@ int main() {
     if (a <= 7) ans.push_back(7);
     if (a <= 11) ans.push_back(11);
     int x;
-    for (int i = 1; i < 10000; i++) {
+    for (int i = 1; i < 10000; i+=2) {
 
-        if (i % 10 == 0) continue;
         if (i < 100) {
             x = decode(2, i);
             if (a <= x && x <= b)
