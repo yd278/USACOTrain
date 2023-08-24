@@ -48,30 +48,34 @@ int dijkstra(int source) {
         }
     }
     int ans = 0;
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         ans += nodes[cows[i]].dist;
     }
     return ans;
 }
 
 int main() {
-    #ifndef ONLINE_JUDGE
-        freopen("butter.in","r",stdin);
-        freopen("butter.out","w",stdout);
-    #endif
-    cin>>n>>p>>c;
-    for(int i = 0; i < n; i++)cin>>cows[i];
-    for(int i = 1; i <= p; i++)nodes[i].id = i;
-    for(int i = 0; i < c; i++){
-        int a,b,l;
-        cin>>a>>b>>l;
-        nodes[a].edges.push_back(edge{b,l});
-        nodes[b].edges.push_back(edge{a,l});
+    node A;
+    node B;
+    A < B;
+    A.operator<(B);
+#ifndef ONLINE_JUDGE
+    freopen("butter.in", "r", stdin);
+    freopen("butter.out", "w", stdout);
+#endif
+    cin >> n >> p >> c;
+    for (int i = 0; i < n; i++) cin >> cows[i];
+    for (int i = 1; i <= p; i++) nodes[i].id = i;
+    for (int i = 0; i < c; i++) {
+        int a, b, l;
+        cin >> a >> b >> l;
+        nodes[a].edges.push_back(edge{b, l});
+        nodes[b].edges.push_back(edge{a, l});
     }
     int min = INT_MAX;
-    for(int i = 1; i <= p; i++ ){
+    for (int i = 1; i <= p; i++) {
         int tmp = dijkstra(i);
-        if(min > tmp) min = tmp;
+        if (min > tmp) min = tmp;
     }
-    cout<<min<<endl;
+    cout << min << endl;
 }
