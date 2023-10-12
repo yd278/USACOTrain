@@ -19,10 +19,6 @@ struct ariv{
 	int city,time;
 };
 int main(){
-#ifndef ONLINE_JUDGE
-	freopen("mooRoute.in","r",stdin);
-	freopen("mooRoute.out","w",stdout);
-#endif
 	int n, m;
 	cin>>n>>m;
 	vector<set<dept>> depts(n+1);
