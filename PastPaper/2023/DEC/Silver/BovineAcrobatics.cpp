@@ -7,10 +7,10 @@ struct Cow {
     bool operator<(const Cow &other) const { return w < other.w; }
 };
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("BovineAcrobatics.in", "r", stdin);
-    freopen("BovineAcrobatics.out", "w", stdout);
-#endif
+// #ifndef ONLINE_JUDGE
+//     freopen("BovineAcrobatics.in", "r", stdin);
+//     freopen("BovineAcrobatics.out", "w", stdout);
+// #endif
     int n, m, k;
     cin >> n >> m >> k;
     vector<Cow> cows(n);

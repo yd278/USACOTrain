@@ -31,10 +31,10 @@ bool cmp(const int &a, const int &b){
     return false;
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("MinimumLongestTrip.in", "r", stdin);
-    freopen("MinimumLongestTrip.out", "w", stdout);
-#endif
+// #ifndef ONLINE_JUDGE
+//     freopen("MinimumLongestTrip.in", "r", stdin);
+//     freopen("MinimumLongestTrip.out", "w", stdout);
+// #endif
     int n, m;
     cin >> n >> m;
     nodes.resize(n);
@@ -67,14 +67,15 @@ int main() {
             for(auto e: edges[vi]){
                 int to = e.to;
                 int depth = nodes[vi].depth+1;
-                if(nodes[to].depth<depth || nodes[to].depth== depth && nodes[to].prevLabel>=e.label){
+                if(nodes[to].depth<depth || (nodes[to].depth== depth && nodes[to].prevLabel>=e.label)){
                     nodes[to].depth = depth;
                     nodes[to].labelSum = nodes[vi].labelSum + e.label;
                     nodes[to].prevLabel = e.label;
                     nodes[to].prevNode = vi;
-                    nodes[to].inDeg--;
-                    if(nodes[to].inDeg==0)nxt.push_back(to);
                 }
+
+                nodes[to].inDeg--;
+                if(nodes[to].inDeg==0)nxt.push_back(to);
             }
         }
         sort(nxt.begin(),nxt.end(),cmp);

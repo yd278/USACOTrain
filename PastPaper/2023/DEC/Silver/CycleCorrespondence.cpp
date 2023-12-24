@@ -2,10 +2,10 @@
 using namespace std;
 
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("CycleCorrespondence.in", "r", stdin);
-    freopen("CycleCorrespondence.out", "w", stdout);
-#endif
+// #ifndef ONLINE_JUDGE
+//     freopen("CycleCorrespondence.in", "r", stdin);
+//     freopen("CycleCorrespondence.out", "w", stdout);
+// #endif
     bitset<500000> s;
     int n, k;
     cin >> n >> k;
