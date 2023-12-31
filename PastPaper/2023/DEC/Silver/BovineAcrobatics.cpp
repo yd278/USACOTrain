@@ -18,52 +18,35 @@ int main() {
         cin >> c.w >> c.a;
     }
     sort(cows.begin(), cows.end());
-
-    int nxt = 0;
-    for (int now = 0; now < n; now++) {
-        while (nxt != n && cows[nxt].w < cows[now].w + k) nxt++;
-        cows[now].next = nxt;
-    }
-
-    long long ans = 0;
     vector<int> based(n);
-    int smallest = 0;
-    while (m && smallest < n) {
-        if (cows[smallest].a > m) {
-			cows[smallest].a -= m;
-            based[smallest] = m;
+    long long ans = 0;
+    int top = 0;
+    while (m && top < n) {
+        if (cows[top].a > m) {
+            cows[top].a -= m;
+            based[top] = m;
             ans += m;
             m = 0;
         } else {
-            based[smallest] = cows[smallest].a;
-            m -= cows[smallest].a;
-			ans+= cows[smallest].a;
-			cows[smallest].a=0;
-			smallest++;
+            based[top] = cows[top].a;
+            ans += cows[top].a;
+            m -= cows[top].a;
+            cows[top].a = 0;
+            top++;
         }
     }
-
-	for(int now = 0; now < n; now++){
-		while(based[now]){
-			
-			if(cows[now].next < smallest)cows[now].next =smallest;
-			while(cows[now].next<n &&cows[cows[now].next].a==0)cows[now].next++;
-			int next = cows[now].next;
-			if(next >= n){
-				cout<<ans<<"\n";
-				return 0;
-			}
-			int amount = min(based[now],cows[next].a);
-			based[now]-=amount;
-			based[next]+= amount;
-			cows[next].a -= amount;
-			ans+= amount;
-            smallest = next;
-			while(smallest<n && cows[smallest].a==0)smallest++;
-            
-
-		}
-	}
-	cout<<ans<<"\n";
+    int filling = 0;
+    for (; top < n; top++) {
+        while (cows[top].a) {
+            if (cows[top].w - cows[filling].w < k) break;
+            int amount = min(cows[top].a, based[filling]);
+            based[filling] -= amount;
+            based[top] += amount;
+            cows[top].a -= amount;
+            ans += amount;
+            if (based[filling] == 0) filling++;
+        }
+    }
+    cout << ans << "\n";
     return 0;
 }
