@@ -2,10 +2,10 @@
 using namespace std;
 #define MODN 1000000007ll
 vector<long long> powers;
-struct Serise {
+struct Series {
     long long h = 0;
     int size = 0;
-    Serise cat(const Serise& other) const {
+    Series cat(const Series& other) const {
         long long res = h * powers[other.size];
         if (res > MODN) res %= MODN;
         res += other.h;
@@ -23,21 +23,21 @@ int getFlag(int x) {
 }
 
 struct TreeNode {
-    Serise e = {0, 0};
+    Series e = {0, 0};
     int u;
     TreeNode* left = nullptr;
     TreeNode* right = nullptr;
-    Serise suffix = {0, 0};
+    Series suffix = {0, 0};
     TreeNode* pr = nullptr;
     TreeNode* nxt = nullptr;
-    Serise h = {0, 0};
+    Series h = {0, 0};
 };
-struct hSerise {
+struct hSeries {
     TreeNode* top;
-    Serise h;
+    Series h;
 };
 
-void updateH(vector<hSerise>& h, int n, TreeNode* target) {
+void updateH(vector<hSeries>& h, int n, TreeNode* target) {
     stack<TreeNode*> path;
     while (h[n].top != target) {
         path.push(h[n].top);
@@ -78,7 +78,7 @@ int main() {
     for (int i = 1; i <= n; i++) {
         lookup[i] = leaves[i];
     }
-    vector<hSerise> h(n + 1);
+    vector<hSeries> h(n + 1);
     for (int i = 1; i <= n; i++) {
         h[i].top = leaves[i];
     }
