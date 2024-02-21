@@ -20,7 +20,7 @@ int main() {
     y--;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            steps[i][j] = -1;
+            steps[i][j] = -1; //-1 表示还没走到
         }
     }
     queue<pos> q;

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-#include <cstdint>
 using namespace std;
 vector<vector<vector<long long>>> dp(2);
 int N;

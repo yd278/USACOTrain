@@ -36,7 +36,7 @@ void dfs(int now, int pa) {       // now：正在搜的点， pa：parent节点
         }
     }
     state[now] = 2;  // 搜完了，把状态改成2
-    flag[now] = getFlag(pa);  // 并且把自己这个点在并查集上连到parent上去
+    flag[now] = getflag(pa);  // 并且把自己这个点在并查集上连到parent上去
 }
 
 int main() {
