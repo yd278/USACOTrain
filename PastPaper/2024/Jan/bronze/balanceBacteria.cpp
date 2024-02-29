@@ -2,10 +2,7 @@
 using namespace std;
 
 int main(){
-	#ifndef ONLINE_JUDGE
-		freopen("balanceBacteria.in","r",stdin);
-		freopen("balanceBacteria.out","w",stdout);
-	#endif
+
 	vector<long long> a;
 	vector<long long> diff;
 
