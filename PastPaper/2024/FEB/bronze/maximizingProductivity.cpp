@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-
-#include <cstddef>
 using namespace std;
 struct query{
 	int s, v;

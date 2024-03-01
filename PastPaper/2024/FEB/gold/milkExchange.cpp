@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-
-#include <vector>
 using namespace std;
 struct Cow {
     long long a;
