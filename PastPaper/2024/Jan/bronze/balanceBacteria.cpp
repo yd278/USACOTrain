@@ -7,6 +7,7 @@ int main(){
 	vector<long long> diff;
 
 	int n;
+
 	cin>>n;
 	a.resize(n);
 	for(auto &g: a){
