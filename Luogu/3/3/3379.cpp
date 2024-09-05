@@ -26,8 +26,8 @@ void dfs(int now, int pa) {       // now：正在搜的点， pa：parent节点
         if (state[q.other] == 1) {  // 如果另一个点的状态也是1
             ans[q.index] = q.other;  // 那么它们的最近公共祖先就是另一个点
         } else if (state[q.other] == 2) {  // 如果另一个点的状态是2
-            ans[q.index] = getFlag(
-                q.other);  // 那么它们的最近公共祖先就是另一个点所在的并查集的flag
+            // 那么它们的最近公共祖先就是另一个点所在的并查集的flag
+            ans[q.index] = getFlag(q.other);
         }
     }
     for (auto to : edges[now]) {  // 对于所有从这个点连出去的边
