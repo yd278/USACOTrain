@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-#include <cstdint>
 using namespace std;
 vector<int> a = {4, 2, 8, 5, 7, 1};
 bool cmp2(int a, int b){
