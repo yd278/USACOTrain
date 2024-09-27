@@ -60,7 +60,10 @@ void cal_blame(int x){
 }
 
 int main(){
-
+#ifndef ONLINE_JUDGE
+	freopen("rut.in","r",stdin);
+	freopen("rutt.out","w",stdout);
+#endif
 	int n;
 	cin>>n;
 	for(int i = 1; i <= n;i++){
