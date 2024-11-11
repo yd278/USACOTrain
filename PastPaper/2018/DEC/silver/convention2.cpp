@@ -8,6 +8,11 @@ struct Cow {
     }
 };
 bool cmp(const Cow &a, const Cow &b) { return a.a < b.a; }
+struct cmpS{
+    bool operator() (const Cow &a, const Cow b){
+        return a.seniority < b.seniority;
+    }
+};
 class Solution {
    public:
     int n;
@@ -15,13 +20,13 @@ class Solution {
     int first;
     int curTime;
     int ans = 0;
-    priority_queue<Cow> wating;
+    priority_queue<Cow, vector<Cow>,cmpS> waiting ;
     vector<Cow> cows;
 
     void push_time(int time) {
         curTime = time;
         while (first<cows.size() && cows[first].a <= curTime) {
-            wating.push(cows[first]);
+            waiting.push(cows[first]);
             first++;
         }
     }
@@ -38,9 +43,9 @@ class Solution {
     }
 
     void nextCow() {
-        if (!wating.empty()) {
-            auto cow = wating.top();
-            wating.pop();
+        if (!waiting.empty()) {
+            auto cow = waiting.top();
+            waiting.pop();
             if (curTime - cow.a > ans) ans = curTime - cow.a;
             push_time(curTime + cow.t);
         } else {
