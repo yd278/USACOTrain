@@ -46,10 +46,11 @@ int main() {
     }
     int maxAns = hitCount.size();
     auto hitBackup = hitCount;
-    int offset = -2;
-    if (c >= 2) {
 
+    if (c >= 2) {
+        
     	// R->L
+        int offset = -2;
         for (int i = c - 1; i >= 0; i--) {
             if (ins[i] != 'R') {
                 if (ins[i] == 'F') {
@@ -76,7 +77,7 @@ int main() {
     }
     // R->F or F->L
     hitCount = hitBackup;
-    offset = -1;
+    int offset = -1;
     for (int i = c - 1; i >= 0; i--) {
         if (ins[i] == 'R') {
             // change here
