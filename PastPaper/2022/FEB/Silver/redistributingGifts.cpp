@@ -18,7 +18,7 @@ int main(){
 	for(int i = 0; i < n; i++){
 		auto wishlist = wishlists[i];
 		for(auto gift : wishlist){
-			reachable[i][gift] = 1;
+			reachable[i][gift] = true;
 			if(gift == i) break;
 		}
 	}

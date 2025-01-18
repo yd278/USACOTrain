@@ -17,7 +17,7 @@ struct TreeDP {
             }
         }
     }
-    void process(int cur, int pr) {
+    void process(int cur, int pr) { 
         if (edges[cur].size() == 1 && edges[cur][0] == pr) {
             t[cur] = min(1, p[cur]);
             return;

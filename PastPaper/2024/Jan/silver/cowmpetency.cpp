@@ -15,7 +15,7 @@ void process() {
         label[h] = 1;
         minA[h] = min(minA[h], a + 1);
     }
-    int state = 0;
+    int state = 0; // 0: wating state, x: fill -1 to x state
     for (int i = n; i >= 1; i--) {
         if (state) {
             if (label[i] == 1) {
@@ -28,6 +28,7 @@ void process() {
         }
         if (i == state) state = 0;
     }
+
     int last = 0;
     int preMax = 0;
     for (int i = 1; i <= n; i++) {
@@ -77,6 +78,7 @@ void process() {
     }
     cout<<c[n]<<endl;
 }
+
 int main() {
 
     int t;
