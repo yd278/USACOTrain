@@ -5,11 +5,11 @@ using namespace std;
 struct Farmer {
     int index;
     long long time;
-    bool operator<(const Farmer &other) const { return time > other.time; }
+    bool operator<(const Farmer& other) const { return time > other.time; }
 };
 struct Node {
-	set<Node*> edges;
-	bool visited;
+    set<Node*> edges;
+    bool visited;
 };
 
 int main() {
@@ -32,27 +32,29 @@ int main() {
 
         pq.pop();
         pq.push({index, time + t[i]});
-		timeLine[time + t[i]].edges.insert(&timeLine[time]);
+        timeLine[time + t[i]].edges.insert(&timeLine[time]);
     }
     auto [index, time] = pq.top();
 
     cout << time << endl;
 
-	queue<Node*> q;
-	q.push(&timeLine[time]);
-	while(!q.empty()){
-		auto head = q.front();
-		q.pop();
-		head->visited = true;
-		for(auto to : head->edges){
-			if(!to->visited) q.push(to);
-		}
-	}
+    queue<Node*> q;
+    q.push(&timeLine[time]);
+    while (!q.empty()) {
+        auto head = q.front();
+        q.pop();
+        head->visited = true;
+        for (auto to : head->edges) {
+            if (!to->visited) q.push(to);
+        }
+    }
 
-	for(int i = 1; i <= k; i++){
-		if(timeLine[t[i]].visited) cout<<"1";
-		else cout<<"0";
-	}
+    for (int i = 1; i <= k; i++) {
+        if (timeLine[t[i]].visited)
+            cout << "1";
+        else
+            cout << "0";
+    }
 
     cout << endl;
 

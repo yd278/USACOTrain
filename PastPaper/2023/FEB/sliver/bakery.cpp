@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-bool check(ll mid, vector<ll> &a, vector<ll> &b, vector<ll> &c, int n, ll tC,
+bool check(ll mid, vector<ll>& a, vector<ll>& b, vector<ll>& c, int n, ll tC,
            ll tM) {
     double upper = min(tC - 1, mid);
     double lower = max(0LL, mid - (tM - 1));
@@ -9,12 +9,11 @@ bool check(ll mid, vector<ll> &a, vector<ll> &b, vector<ll> &c, int n, ll tC,
         double k = c[i] - a[i] * tC - b[i] * tM + b[i] * mid;
         if (b[i] == a[i] && k < 0) return false;
         if (b[i] > a[i]) upper = min(upper, k / (b[i] - a[i]));
-		if(a[i] > b[i]) lower = max(lower,  k /(b[i] - a[i]));
+        if (a[i] > b[i]) lower = max(lower, k / (b[i] - a[i]));
     }
     return floor(upper) >= ceil(lower);
 }
 int main() {
-
     int t;
     cin >> t;
     while (t--) {
