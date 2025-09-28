@@ -36,16 +36,16 @@ void process() {
             else
                 cout << "2 1\n";
         }
-		return;
+        return;
     }
-    if(A+B==2){
-        cout<<"0\n";
+    if (A + B == 2) {
+        cout << "0\n";
         return;
     }
     cout << A + B - 1 << endl;
     bool flip = false;
     if (p > 1) {
-        if(A==1) flip = true;
+        if (A == 1) flip = true;
         while (A > 1 || B > 1) {
             if ((A ^ B) & 1) {
                 if (A > B) {
@@ -56,7 +56,7 @@ void process() {
                     B--;
                 }
             } else {
-                if ((A & 1)^flip) {
+                if ((A & 1) ^ flip) {
                     cout << "1 3\n";
                     A--;
                 } else {
@@ -65,12 +65,13 @@ void process() {
                 }
             }
         }
-        if(flip) cout<<"3 2\n";
-        else cout << "3 1\n";
+        if (flip)
+            cout << "3 2\n";
+        else
+            cout << "3 1\n";
     }
 }
 int main() {
-
     int T;
     cin >> T;
     while (T--) {

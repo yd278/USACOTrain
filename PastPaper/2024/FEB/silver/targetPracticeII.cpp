@@ -6,11 +6,12 @@ struct Point {
     ll y;
     double s;
     void computeS(ll mid) { s = (y - mid) / (double)x; }
-    bool operator<(const Point &other) const { return s < other.s; }
+    bool operator<(const Point& other) const { return s < other.s; }
 };
 
-bool check(ll mid, vector<ll> &s, vector<Point> &r, vector<ll> l, ll x1, int n) {
-    for (auto &p : r) {
+bool check(ll mid, vector<ll>& s, vector<Point>& r, vector<ll> l, ll x1,
+           int n) {
+    for (auto& p : r) {
         p.computeS(mid);
     }
     sort(r.begin(), r.end());
@@ -19,22 +20,22 @@ bool check(ll mid, vector<ll> &s, vector<Point> &r, vector<ll> l, ll x1, int n) 
     }
     for (int i = s.size() - 1; i >= n; i--) {
         int j = (n * 2 - 1) - (s.size() - 1 - i);
-		if(l[j] - s[i]*x1 < mid) return false;
+        if (l[j] - s[i] * x1 < mid) return false;
     }
-	return true;
+    return true;
 }
 
-ll binarySearch(ll low, ll high, vector<ll> &s, vector<Point> &r, vector<ll> l,ll x1,
-                int n) {
+ll binarySearch(ll low, ll high, vector<ll>& s, vector<Point>& r, vector<ll> l,
+                ll x1, int n) {
     while (high > low) {
         ll mid = (low + high) / 2;
-        if (check(mid, s, r, l, x1,n)) {
+        if (check(mid, s, r, l, x1, n)) {
             low = mid;
         } else {
             high = mid - 1;
         }
     }
-    if (check(high, s, r, l, x1,n)) return high;
+    if (check(high, s, r, l, x1, n)) return high;
     return low;
 }
 void process() {
@@ -67,25 +68,26 @@ void process() {
             sNeg.push_back(-s);
         }
     }
-	if(sPos.size()<n || sNeg.size()<n){
-		cout<<-1<<endl;
-		return;
-	}
-		
+    if (sPos.size() < n || sNeg.size() < n) {
+        cout << -1 << endl;
+        return;
+    }
+
     sort(sPos.begin(), sPos.end());
     sort(sNeg.begin(), sNeg.end());
 
-	ll low = binarySearch(INTMAX_MIN / 2, leftSide[0], sPos, bottomRight, leftSide,x1,n);
-	reverse(leftSide.begin(),leftSide.end());
-	for(auto & l : leftSide) l = -l;
-	ll high = - binarySearch(INTMAX_MIN / 2, leftSide[0], sNeg, topRight, leftSide, x1, n);
-	if(high > low )
-		cout<<high - low<<endl;
-	else
-		cout<<-1<<endl;
+    ll low = binarySearch(INTMAX_MIN / 2, leftSide[0], sPos, bottomRight,
+                          leftSide, x1, n);
+    reverse(leftSide.begin(), leftSide.end());
+    for (auto& l : leftSide) l = -l;
+    ll high = -binarySearch(INTMAX_MIN / 2, leftSide[0], sNeg, topRight,
+                            leftSide, x1, n);
+    if (high > low)
+        cout << high - low << endl;
+    else
+        cout << -1 << endl;
 }
 int main() {
-
     int T;
     cin >> T;
     while (T--) {

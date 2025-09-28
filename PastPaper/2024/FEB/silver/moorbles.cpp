@@ -10,7 +10,7 @@ void process() {
     loss[1].resize(m);
 
     for (int i = 0; i < m; i++) {
-        for (auto &b : bessie) {
+        for (auto& b : bessie) {
             cin >> b;
         }
         int maxEven = INT_MIN;
@@ -30,15 +30,21 @@ void process() {
     }
 
     vector<int> elsie(m);
+    // sum[i]: in the worst case, number of marbles to loss from round i
     vector<int> sum(m + 1);
 
     for (int i = m - 1; i >= 0; i--) {
         sum[i] = sum[i + 1] + min(loss[1][i], loss[0][i]);
     }
-    vector<int> minSum(m+1);
+
+    // At round i, to prevent losing, we need to have
+    // worst j > i that sum loss[i..j] is maximized
+    // j is not necessarily equal to m as we might win sometimes
+    // hence the sum of loss is sum[i] - minSum[i]
+    vector<int> minSum(m + 1);
     minSum[m] = sum[m];
-    for(int i = m - 1; i>= 0; i--){
-        minSum[i] = min(sum[i],minSum[i+1]);
+    for (int i = m - 1; i >= 0; i--) {
+        minSum[i] = min(sum[i], minSum[i + 1]);
     }
     if (sum[0] >= n) {
         cout << "-1\n";
@@ -46,11 +52,11 @@ void process() {
     }
 
     for (int i = 0; i < m; i++) {
-        if (n > loss[0][i] + max(0, sum[i + 1] - minSum[i+1])) {
+        if (n > loss[0][i] + sum[i + 1] - minSum[i + 1]) {
             n -= loss[0][i];
             // elsie[i] = 0;
         } else {
-            if (n > loss[1][i] + max(0, sum[i + 1] - minSum[i+1])) {
+            if (n > loss[1][i] + sum[i + 1] - minSum[i + 1]) {
                 n -= loss[1][i];
                 elsie[i] = 1;
             } else {
