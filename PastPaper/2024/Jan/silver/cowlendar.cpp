@@ -1,18 +1,15 @@
 #include <bits/stdc++.h>
 
-#include <vector>
-
 using namespace std;
-bool check(vector<long long> &A, long long k) {
+bool check(vector<long long>& A, long long k) {
     set<long long> chk;
-    for(auto a : A){
+    for (auto a : A) {
         chk.insert(a % k);
-        if(chk.size()>3) return false;
+        if (chk.size() > 3) return false;
     }
     return true;
 }
 int main() {
-
     int N;
     vector<long long> a;
     cin >> N;
@@ -22,9 +19,9 @@ int main() {
     auto last = unique(a.begin(), a.end());
     a.resize(distance(a.begin(), last));
 
-    if(a.size()<=3){
+    if (a.size() <= 3) {
         long long m = a[0] / 4;
-        cout<<(m+1)*m/2<<endl;
+        cout << (m + 1) * m / 2 << endl;
         return 0;
     }
     set<long long> Ls;
@@ -42,8 +39,8 @@ int main() {
     }
     long long sum = 0;
     for (auto l : Ls) {
-        if(check(a, l))sum+=l;
+        if (check(a, l)) sum += l;
     }
-    cout<<sum<<endl;
+    cout << sum << endl;
     return 0;
 }
