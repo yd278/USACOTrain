@@ -9,19 +9,19 @@ int main() {
     lastP.resize(4);
     comp.resize(MAXN);
     turns.resize(MAXN);
-	lastP[0] = 2;
-	turns[1] = 1;
+    lastP[0] = 2;
+    turns[1] = 1;
     for (int i = 2; i <= MAXN; i++) {
         if (!comp[i]) {
             prime.push_back(i);
-			lastP[i%4] = i;
+            lastP[i % 4] = i;
         }
         for (auto p : prime) {
             if (i * p > MAXN) break;
             comp[i * p] = true;
             if (i % p == 0) break;
         }
-		turns[i] = (i - lastP[i%4]) / 2 + 1;
+        turns[i] = (i - lastP[i % 4]) / 2 + 1;
     }
 
     int t;
